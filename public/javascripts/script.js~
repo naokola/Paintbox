@@ -222,11 +222,14 @@ $('.saveImage').on('click', function(){
     var dataURL = canvas.toDataURL('image/png');
     $.ajax({
         method: 'POST',
-        url: '/save_image',
-        data: {
-            format: 'json',
-            data_uri: dataURL
-        },
+        url: 'user_picture',
+      //  data: {
+      //      format: 'json',
+      //      data_uri: dataURL
+      //  },
+        model: {
+            image: dataURL,
+        }
         dataType: 'jsonp',
         error: function(err) {
         console.log(err);
