@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-    def message
+    def send_mail
         mail(
             subject: 'Postmark works',
             to: 'wakelank@gmail.com',
