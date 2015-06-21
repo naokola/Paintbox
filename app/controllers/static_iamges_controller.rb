@@ -1,0 +1,2 @@
+class StaticIamgesController < ApplicationController
+end

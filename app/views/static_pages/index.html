@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="uft-8">
+	<title>Web Paint</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="styles/style.css" type="text/css" media="all">
+	
+	
+</head>
+
+<body>
+	<header class="block">
+
+		<img src="images/camera-icon.png"  class="cameraIcon" alt="camera">
+		<img src="images/saveicon2.png" class="saveImage" alt="saveicon">
+		<img src="images/emailicon.png" class="emailIcon" alt="emailicon">
+		<img src="images/pencilicon.png" class="pencilIcon" alt="pencilicon">
+		
+
+	</header>
+		<div class="wrapper">
+		
+				<img src="images/Squareframe.png"  alt="frameArt" class="frameImage" data-framename="frame1">
+				<img src="images/Squareframe.png" alt="frameArt" class="frameImage"  data-framename="frame2" >
+				<img src="images/Squareframe.png"   alt="frameArt" class="frameImage"  data-framename="frame3" >
+				<img src="images/Squareframe.png"  alt="frameArt" class="frameImage" data-framename="frame4" >
+				<img src="images/Squareframe.png"  alt="frameArt" class="frameImage"  data-framename="frame5">
+		
+			
+		</div>
+
+	<div id="canvasDiv">
+		
+
+ 		<canvas id="canvas" width="800" height="600">
+		</canvas>
+		<div id="camera">
+		</div>
+
+	</div>
+
+	<div class="wrapper">
+
+		<div class="colors">
+
+			<img src="images/colorpencilwhite.png"  alt="colorpencilart" class="colorpencil white" id='colorWhite'>
+			<img src="images/colorpencilyellow.png" alt="colorpencilart" class="colorpencil yellow" id='colorYellow'>
+			<img src="images/colorpencilgreen.png" alt="colorpencilart" class="colorpencil green" id='colorGreen'>
+			<img src="images/colorpencillightblue.png" alt="colorpencilart" class="colorpencil lightblue"
+			id = 'colorLightblue'>
+			<img src="images/colorpencilblue.png" alt="colorpencilart" class="colorpencil blue"
+			id = 'colorBlue'>
+			<img src="images/colorpencilpurple.png" alt="colorpencilart" class="colorpencil purple"
+			id = 'colorPurple'>
+			<img src="images/colorpencilpink.png" alt="colorpencilart" class="colorpencil pink"
+			id = 'colorPink'>
+			<img src="images/colorpencilorange.png" alt="colorpencilart" class="colorpencil orange"
+			id = 'colorOrange'>
+			<img src="images/colorpencilred.png"  alt="colorpencilart" class="colorpencil red" id ='colorRed'>
+			<img src="images/colorpencilflesh.png" alt="colorpencilart" class="colorpencil flesh" id ='colorFlesh'>
+			<img src="images/colorpencilbrown.png" alt="colorpencilart" class="colorpencil brown" id = 'colorBrown'>
+			<img src="images/colorpencilblack.png" alt="colorpencilart" class="colorpencil black"
+			id = 'colorBlack'>
+			<img src="images/eraser.png" alt = "colorpencilart" class="colorpencil eraser" id = 'colorEraser'>
+		
+		</div>
+	</div>
+
+	<!-- Button trigger modal -->
+	<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+	  Launch demo modal
+	</button>
+ -->
+	<!-- Modal -->
+	<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> -->
+<!-- 	  <div class="modal-dialog"> -->
+	    <!-- <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+	      </div>
+	      <div id="cam-test" class="modal-body"> -->
+	      <!--   ... -->
+	      <!-- </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+		 -->
+
+ <!-- <video autoplay id="video"></video> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="scripts/photobooth_min.js"></script>
+	<script type="text/javascript" src="scripts/script.js"></script>
+
+
+
+</body>
+</html>
