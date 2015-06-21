@@ -148,6 +148,7 @@ $(this).css('color','FF00000');
 // eval will change a string to a variable name;
 })
 
+
 $('.eraser').on('click', function(){
   curTool = 'eraser';
 })
@@ -155,7 +156,6 @@ $('.eraser').on('click', function(){
 //below this ponint: camera function---------------------------
 
 
- 
  $('#camera').photobooth().on("image",function( event, dataUrl ){
  // $( "#photo" ).append( '<img src="' + dataUrl + '" >');
  photo = $('<img>').attr('src', dataUrl)[0];
@@ -217,6 +217,25 @@ function chgImg()
   var png = cvs.toDataURL();
   document.getElementById("newImg").src = png;
 }
+
+$('.saveImage').on('click', function(){
+    var dataURL = canvas.toDataURL('image/png');
+    $.ajax({
+        method: 'POST',
+        url: '/save_image',
+        data: {
+            format: 'json',
+            data_uri: dataURL
+        },
+        dataType: 'jsonp',
+        error: function(err) {
+        console.log(err);
+        },
+        success: function(){
+            console.log("success");
+        }
+    });
+});
 
 
 

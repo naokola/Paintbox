@@ -40,10 +40,10 @@
 		</canvas>
 		<div id="camera">
 		</div>
+         <img id="myPicture">
 
 	</div>
 
-    <img id="myPicture">
 	<div class="wrapper">
 
 		<div class="colors">
