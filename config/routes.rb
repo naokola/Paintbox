@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
     root 'static_pages#index'
     post 'user_picture' => 'user_picture#save_image'
+    get 'user_picture/send_mail' => 'user_picture#send_mail'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

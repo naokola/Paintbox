@@ -10,6 +10,13 @@ class UserPictureController < ApplicationController
         File.open("/public/images/user_images/userimage.png", 'wb') do |f|
             f.write image_data
         end
+        
+        redirect_to root_url
+    end
 
+    def send_mail
+        UserMailer.send_mail.deliver_now
+
+        redirect_to root_url
     end
 end
