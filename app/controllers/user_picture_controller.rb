@@ -11,7 +11,7 @@ class UserPictureController < ApplicationController
         #    f.write image_data
         #end
         image = Paperclip.io_adapters.for(params[:image])
-        image.original_filename = "something.png"
+        image.original_filename = "user_image#{Time.now.strftime('%Y%m%d-%H%M%S')}.png"
         UserPicture.create(image: image)
         
         redirect_to root_url

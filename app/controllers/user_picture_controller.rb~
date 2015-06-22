@@ -10,7 +10,6 @@ class UserPictureController < ApplicationController
         #File.open("/public/images/user_images/userimage.png", 'wb') do |f|
         #    f.write image_data
         #end
-        binding.pry
         image = Paperclip.io_adapters.for(params[:image])
         image.original_filename = "something.png"
         UserPicture.create(image: image)
