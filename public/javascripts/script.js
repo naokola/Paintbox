@@ -223,12 +223,9 @@ $('.saveImage').on('click', function(){
     $.ajax({
         method: 'POST',
         url: 'user_picture',
-      //  data: {
-      //      format: 'json',
-      //      data_uri: dataURL
-      //  },
-        model: {
-            image: dataURL,
+        data: {
+            format: 'json',
+            image: dataURL
         },
         dataType: 'jsonp',
         error: function(err) {

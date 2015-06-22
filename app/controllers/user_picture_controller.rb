@@ -12,7 +12,8 @@ class UserPictureController < ApplicationController
         #end
         image = Paperclip.io_adapters.for(params[:image])
         image.original_filename = "something.png"
-         
+        UserPicture.create(image: image)
+        
         redirect_to root_url
     end
 
