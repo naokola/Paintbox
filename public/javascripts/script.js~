@@ -158,7 +158,7 @@ $('.eraser').on('click', function(){
 
 
 $('#camera').photobooth().on("image",function( event, dataUrl ){
-  $( "#photo" ).append( '<img src="' + dataUrl + '" >');  
+//$( "#photo" ).append( '<img src="' + dataUrl + '" >');  
   $('#camera').data( 'photobooth').pause();
   $('#camera').css('display','none');
   var img = new Image();
@@ -169,8 +169,12 @@ $('#camera').photobooth().on("image",function( event, dataUrl ){
   $(".pencil_wrapper").append( '<img src="' + dataUrl + '" >');
 });
 
-
-
+    $('.cameraIcon').on('click',function(){
+        photo = 'none';
+        $('#camera').css('display','block');
+        $('#camera').data('photobooth').resume();
+        document.getElementById('photo').getContext('2d').clearRect(0, 0, context.canvas.width, context.canvas.height)
+    })
 
    function afterImageLoaded( url ) {
     var d = $.Deferred();
@@ -182,7 +186,7 @@ $('#camera').photobooth().on("image",function( event, dataUrl ){
     return d.promise();
    }
   
-  $('.saveImage').on('click', function( e ) {
+  $('.emailIcon').on('click', function( e ) {
     var photo = document.getElementById('photo');
     var camera = document.getElementById('canvas');
 
@@ -191,6 +195,9 @@ $('#camera').photobooth().on("image",function( event, dataUrl ){
 
     var pProm = afterImageLoaded(  );
     var cProm = afterImageLoaded(  );
+
+    $('body').css('cursor','wait');
+    $('.pointer').css('cursor','wait');
 
     $.when(afterImageLoaded( pURL ), afterImageLoaded( cURL) ).then(function() {
       var img1 = arguments[ 0 ][1];
@@ -205,6 +212,27 @@ $('#camera').photobooth().on("image",function( event, dataUrl ){
       newCanvContext.drawImage( img2, 0, 0 );
 
       console.log( newCanv.toDataURL() );
+
+        var dataURL = newCanv.toDataURL('image/png');
+
+        $.ajax({
+            method: 'POST',
+            url: 'user_picture',
+            data: {
+                format: 'json',
+                image: dataURL
+            },
+            dataType: 'jsonp',
+            error: function(err) {
+                 console.log("error");
+                console.log(err);
+            },
+            success: function(){
+                console.log("success");
+               $('body').css('cursor', 'auto');
+                window.location.href = "/user_picture/mail_form";
+            }
+        });
     })
 
 

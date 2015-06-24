@@ -158,7 +158,7 @@ $('.eraser').on('click', function(){
 
 
 $('#camera').photobooth().on("image",function( event, dataUrl ){
-  $( "#photo" ).append( '<img src="' + dataUrl + '" >');  
+//$( "#photo" ).append( '<img src="' + dataUrl + '" >');  
   $('#camera').data( 'photobooth').pause();
   $('#camera').css('display','none');
   var img = new Image();
@@ -166,11 +166,15 @@ $('#camera').photobooth().on("image",function( event, dataUrl ){
     document.getElementById('photo').getContext('2d').drawImage(img,0,0); // Or at whatever offset you like
   };
   img.src = dataUrl;
-  $(".pencil_wrapper").append( '<img src="' + dataUrl + '" >');
+  //$(".pencil_wrapper").append( '<img src="' + dataUrl + '" >');
 });
 
-
-
+    $('.cameraIcon').on('click',function(){
+        photo = 'none';
+        $('#camera').css('display','block');
+        $('#camera').data('photobooth').resume();
+        document.getElementById('photo').getContext('2d').clearRect(0, 0, context.canvas.width, context.canvas.height)
+    })
 
    function afterImageLoaded( url ) {
     var d = $.Deferred();
@@ -191,6 +195,9 @@ $('#camera').photobooth().on("image",function( event, dataUrl ){
 
     var pProm = afterImageLoaded(  );
     var cProm = afterImageLoaded(  );
+
+    $('body').css('cursor','wait');
+    $('.pointer').css('cursor','wait');
 
     $.when(afterImageLoaded( pURL ), afterImageLoaded( cURL) ).then(function() {
       var img1 = arguments[ 0 ][1];
@@ -222,6 +229,7 @@ $('#camera').photobooth().on("image",function( event, dataUrl ){
             },
             success: function(){
                 console.log("success");
+               $('body').css('cursor', 'auto');
                 window.location.href = "/user_picture/mail_form";
             }
         });

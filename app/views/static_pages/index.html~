@@ -22,8 +22,8 @@
 		<img src="images/Squareframe.png"  alt="frameArt" class="frameImage"  data-framename="frame5">
 	</div>
 	<div class="canvas_wrapper">		
-		<canvas id="photo"></canvas>
-		<canvas id="canvas"></canvas>
+		<canvas id="photo" width="800" height="600"></canvas>
+		<canvas id="canvas" width="800" height="600"></canvas>
 		<div id="camera"></div>
 	</div>
 	<div class="pencil_wrapper">
