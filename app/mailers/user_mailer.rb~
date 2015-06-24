@@ -1,5 +1,7 @@
 class UserMailer < ApplicationMailer
     def send_mail
+        @user_picture = UserPicture.last
+        @message_body = params[:message_body]
         mail(
             subject: 'Postmark works',
             to: 'wakelank@gmail.com',

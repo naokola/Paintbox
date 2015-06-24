@@ -18,7 +18,6 @@ class UserPictureController < ApplicationController
     end
 
     def send_mail
-        @user_picture = UserPicture.last
         UserMailer.send_mail.deliver_now
 
         redirect_to root_url
