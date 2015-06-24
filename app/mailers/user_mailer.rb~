@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
         mail(
             subject: 'Postmark works',
             to: 'wakelank@gmail.com',
-            from: 'example@example.com',
+            from: 'no-reply@concrawler.com',
             html_body: 'this is the body')
     end
 

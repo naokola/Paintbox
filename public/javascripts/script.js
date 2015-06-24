@@ -218,7 +218,7 @@ function chgImg()
   document.getElementById("newImg").src = png;
 }
 
-$('.saveImage').on('click', function(){
+$('.emailIcon').on('click', function(){
     var dataURL = canvas.toDataURL('image/png');
     $.ajax({
         method: 'POST',
@@ -229,10 +229,12 @@ $('.saveImage').on('click', function(){
         },
         dataType: 'jsonp',
         error: function(err) {
-        console.log(err);
+             console.log("error");
+            console.log(err);
         },
         success: function(){
             console.log("success");
+            window.location.href = "/user_picture/mail_form";
         }
     });
 });
