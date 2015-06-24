@@ -1,10 +1,10 @@
 class UserMailer < ApplicationMailer
-    def send_mail(message_body)
+    def send_mail(message_body, recipient)
         @user_picture = UserPicture.last
         @message_body = message_body
         mail(
             subject: 'Postmark works',
-            to: 'wakelank@gmail.com',
+            to: recipient,
             from: 'no-reply@concrawler.com',
             html_body: 'this is the body')
     end
