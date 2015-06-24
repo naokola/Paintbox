@@ -1,8 +1,8 @@
 
 
 $(function() {
-context = document.getElementById('canvas').getContext("2d");
 
+context = document.getElementById('canvas').getContext("2d");
 var colorWhite = '#FFFFFF';
 var colorYellow = '#FFFF00';
 var colorGreen = '#008000';
@@ -20,9 +20,11 @@ var colorOrange = '#FF8C00';
 $('#canvas').mousedown(function(e){
   var mouseX = e.pageX - this.offsetLeft;
   var mouseY = e.pageY - this.offsetTop;
+
+  console.log( mouseX, mouseY, e );
     console.log("mousedown")
   paint = true;
-  addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+  addClick(e.offsetX, e.offsetY);
   redraw();
 });
 //e is event
@@ -30,7 +32,7 @@ $('#canvas').mousedown(function(e){
 
 $('#canvas').mousemove(function(e){
   if(paint){
-    addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
+    addClick(e.offsetX, e.offsetY, true);
     redraw();
   }
 });
@@ -55,7 +57,6 @@ var clickColor = new Array();
 var clickTool = new Array();
 var curTool = "pencil";
 var frameImage = 'none';
-
 var photo = 'none';
 
 
@@ -156,15 +157,80 @@ $('.eraser').on('click', function(){
 //below this ponint: camera function---------------------------
 
 
- $('#camera').photobooth().on("image",function( event, dataUrl ){
- // $( "#photo" ).append( '<img src="' + dataUrl + '" >');
- photo = $('<img>').attr('src', dataUrl)[0];
- $('#camera').css('display','none');
- $('#camera').data( 'photobooth').pause();
-redraw();
+$('#camera').photobooth().on("image",function( event, dataUrl ){
+  $( "#photo" ).append( '<img src="' + dataUrl + '" >');  
+  $('#camera').data( 'photobooth').pause();
+  $('#camera').css('display','none');
+  var img = new Image();
+  img.onload = function(){
+    document.getElementById('photo').getContext('2d').drawImage(img,0,0); // Or at whatever offset you like
+  };
+  img.src = dataUrl;
+  $(".pencil_wrapper").append( '<img src="' + dataUrl + '" >');
 });
-  
 
+
+
+
+   function afterImageLoaded( url ) {
+    var d = $.Deferred();
+    var img = new Image();
+    img.onload = function() {
+      d.resolve( [url, img] );
+    }
+    img.src = url;
+    return d.promise();
+   }
+  
+  $('.emailIcon').on('click', function( e ) {
+    var photo = document.getElementById('photo');
+    var camera = document.getElementById('canvas');
+
+    var pURL = photo.toDataURL();
+    var cURL = camera.toDataURL()
+
+    var pProm = afterImageLoaded(  );
+    var cProm = afterImageLoaded(  );
+
+    $.when(afterImageLoaded( pURL ), afterImageLoaded( cURL) ).then(function() {
+      var img1 = arguments[ 0 ][1];
+      var img2 = arguments[ 1 ][1];
+      var newCanv = document.createElement('canvas');
+      newCanv.height = 600;
+      newCanv.width = 800;
+
+      var newCanvContext = newCanv.getContext('2d');
+      newCanvContext.drawImage( img1, 0, 0 );
+      newCanvContext.globalCompositeOperation = 'source-over';
+      newCanvContext.drawImage( img2, 0, 0 );
+
+      console.log( newCanv.toDataURL() );
+
+        var dataURL = newCanv.toDataURL('image/png');
+
+        $.ajax({
+            method: 'POST',
+            url: 'user_picture',
+            data: {
+                format: 'json',
+                image: dataURL
+            },
+            dataType: 'jsonp',
+            error: function(err) {
+                 console.log("error");
+                console.log(err);
+            },
+            success: function(){
+                console.log("success");
+                window.location.href = "/user_picture/mail_form";
+            }
+        });
+    })
+
+
+
+
+  })
 
 //above this ponit is camera function----------------------------------
 
@@ -185,16 +251,16 @@ redraw();
 //this is Putting Frames on canvas---------------------------------------------------------------------------------------below
 
 
-$('.frameImage').on('click', function(){
+  $('.frameImage').on('click', function(){
 
-var thisFrame = $(this).attr('data-framename');
-frameImage = $('<img>').attr('src','images/'+thisFrame + '.png')[0];
-$(frameImage).load(function() {
-  redraw();
-});
+    var thisFrame = $(this).attr('data-framename');
+    frameImage = $('<img>').attr('src','images/'+thisFrame + '.png')[0];
+    $(frameImage).load(function() {
+      redraw();
+    });
 
 
- })
+   });
  
 //-------------------save the image-----------------------------below
 // function saveImage() {
@@ -218,26 +284,27 @@ function chgImg()
   document.getElementById("newImg").src = png;
 }
 
-$('.emailIcon').on('click', function(){
-    var dataURL = canvas.toDataURL('image/png');
-    $.ajax({
-        method: 'POST',
-        url: 'user_picture',
-        data: {
-            format: 'json',
-            image: dataURL
-        },
-        dataType: 'jsonp',
-        error: function(err) {
-             console.log("error");
-            console.log(err);
-        },
-        success: function(){
-            console.log("success");
-            window.location.href = "/user_picture/mail_form";
-        }
-    });
-});
+// $('.saveImage').on('click', function(){
+//     var dataURL = canvas.toDataURL('image/png');
+//     $.ajax({
+//         method: 'POST',
+//         url: 'user_picture',
+//       //  data: {
+//       //      format: 'json',
+//       //      data_uri: dataURL
+//       //  },
+//         model: {
+//             image: dataURL,
+//         }
+//         dataType: 'jsonp',
+//         error: function(err) {
+//         console.log(err);
+//         },
+//         success: function(){
+//             console.log("success");
+//         }
+//     });
+// });
 
 
 

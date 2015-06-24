@@ -3,51 +3,31 @@
 <head>
 	<meta charset="uft-8">
 	<title>Web Paint</title>
-
-	<link href='http://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
+	<link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
 	<link rel="stylesheet" href="stylesheets/style.css" type="text/css" media="all">
-	
-	
 </head>
-
 <body>
-	<header class="block">
-
+	<header class="command_menu">
 		<img src="images/camera-icon.png"  class="cameraIcon" alt="camera">
 		<img src="images/saveicon2.png" class="saveImage" alt="saveicon">
 		<img src="images/emailicon.png" class="emailIcon" alt="emailicon">
 		<img src="images/pencilicon.png" class="pencilIcon" alt="pencilicon">
-		
-
 	</header>
-		<div class="wrapper">
-		
-				<img src="images/Squareframe.png"  alt="frameArt" class="frameImage" data-framename="frame1">
-				<img src="images/Squareframe.png" alt="frameArt" class="frameImage"  data-framename="frame2" >
-				<img src="images/Squareframe.png"   alt="frameArt" class="frameImage"  data-framename="frame3" >
-				<img src="images/Squareframe.png"  alt="frameArt" class="frameImage" data-framename="frame4" >
-				<img src="images/Squareframe.png"  alt="frameArt" class="frameImage"  data-framename="frame5">
-		
-			
-		</div>
-
-	<div id="canvasDiv">
-		
-
- 		<canvas id="canvas" width="800" height="600">
-		</canvas>
-		<div id="camera">
-		</div>
-
+	<div class="frame_wrapper cf">
+		<img src="images/Squareframe.png"  alt="frameArt" class="frameImage" data-framename="frame1">
+		<img src="images/Squareframe.png" alt="frameArt" class="frameImage"  data-framename="frame2" >
+		<img src="images/Squareframe.png"   alt="frameArt" class="frameImage"  data-framename="frame3" >
+		<img src="images/Squareframe.png"  alt="frameArt" class="frameImage" data-framename="frame4" >
+		<img src="images/Squareframe.png"  alt="frameArt" class="frameImage"  data-framename="frame5">
 	</div>
-
-    <img id="myPicture">
-	<div class="wrapper">
-
+	<div class="canvas_wrapper">		
+		<canvas id="photo"></canvas>
+		<canvas id="canvas"></canvas>
+		<div id="camera"></div>
+	</div>
+	<div class="pencil_wrapper">
 		<div class="colors">
-
 			<img src="images/colorpencilwhite.png"  alt="colorpencilart" class="colorpencil white" id='colorWhite'>
 			<img src="images/colorpencilyellow.png" alt="colorpencilart" class="colorpencil yellow" id='colorYellow'>
 			<img src="images/colorpencilgreen.png" alt="colorpencilart" class="colorpencil green" id='colorGreen'>
@@ -55,8 +35,8 @@
 			id = 'colorLightblue'>
 			<img src="images/colorpencilblue.png" alt="colorpencilart" class="colorpencil blue"
 			id = 'colorBlue'>
-		<!--	<img src="images/colorpencilpurple.png" alt="colorpencilart" class="colorpencil purple"
-      id = 'colorPurple'>-->
+			<img src="images/colorpencilpurple.png" alt="colorpencilart" class="colorpencil purple"
+			id = 'colorPurple'>
 			<img src="images/colorpencilpink.png" alt="colorpencilart" class="colorpencil pink"
 			id = 'colorPink'>
 			<img src="images/colorpencilorange.png" alt="colorpencilart" class="colorpencil orange"
@@ -67,9 +47,9 @@
 			<img src="images/colorpencilblack.png" alt="colorpencilart" class="colorpencil black"
 			id = 'colorBlack'>
 			<img src="images/eraser.png" alt = "colorpencilart" class="colorpencil eraser" id = 'colorEraser'>
-		
 		</div>
 	</div>
+	
 
 	<!-- Button trigger modal -->
 	<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
@@ -97,12 +77,12 @@
 		 -->
 
  <!-- <video autoplay id="video"></video> -->
+
+
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="javascripts/photobooth_min.js"></script>
 	<script type="text/javascript" src="javascripts/script.js"></script>
-
-
-
 </body>
 </html>

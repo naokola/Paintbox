@@ -1,0 +1,228 @@
+
+body {
+	background-color: #66CDAA;
+/*	#efffef;*/
+
+}
+
+#canvasDiv {
+	height: 600px;
+	width: 800px;
+	position: relative;
+}
+
+/*#photo {
+	position: absolute;
+	height: 600px;
+	width: 800px;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	margin:0 0 0 50px;
+}*/
+
+
+#canvas {
+
+	background-color: #fff8dc;
+	cursor:default;
+	position: absolute;
+	
+	top: 0;
+	left: 0;
+	z-index: 0;
+	
+	
+	border-radius: 18px 18px 18px 18px;
+	-moz-border-radius: 18px 18px 18px 18px;
+	-webkit-border-radius: 18px 18px 18px 18px;
+	
+	margin:0 0 0 50px;
+}
+
+#camera {
+	position: absolute;
+	height: 600px;
+	width: 800px;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	margin:0 0 0 50px;
+	
+}
+
+
+
+.menu {
+	position: relative;
+	
+	margin:0;
+	padding:0;
+	display: block;
+}
+
+.slider {
+	width:600px;
+	height: .8em;s
+	position: relative;
+	text-align: left;
+}
+br {
+	margin:0;
+	padding:0;
+}
+.save {
+	margin:0;
+	padding:0;
+	align-items: flex-start;
+	text-align: center;
+	cursor: default;
+	color: buttontext;
+	border: 2px outset buttonface;
+	border-image-source:initial;
+	border-image-slice:initial;
+	border-image-width:initial;
+	border-image-outset:initial;
+	border-image-repeat:initial;
+	background-color:buttonface;
+	box-sizing: border-box;	
+}
+
+button .Save {
+	-webkit-writing-mode:
+	horizontal-tb;
+}
+button {
+	-webkit-appearance:
+	button;
+}	
+
+.block {
+    color: #fff;
+    background: #f08080;
+    padding: 3px;
+    border: 2px dashed rgba(255,255,255,0.8);
+    box-shadow: 0 0 0 5px #f08080;
+    -moz-box-shadow: 0 0 0 5px #f08080;
+    -webkit-box-shadow: 0 0 0 5px #f08080;
+}
+
+
+.frameImage {
+　
+	background-color:transparent;
+	margin:-80px 0 60px 50px;
+  　 max-width: 100px;
+    height: auto;
+	float:left;	
+	transform:rotate(-45deg); 
+	cursor: pointer;
+}
+
+
+.wrapper {
+	height:30%;
+	width:100%;	
+	margin-top: 5px;
+	position: relative;
+}
+
+.wrapper:after {
+	clear:both;
+
+}
+.colors {
+	width:800px;
+	display:inline-block;
+	margin:0px 0 0 80px;
+
+
+
+}
+.colorpencil {
+		
+		padding:30px 0 0 0;
+		float:left;
+		padding:0
+		width:100%;
+		/*transform: rotateX( 180deg );*/
+	　  height:150px;
+		
+}
+.stickers  {
+    color: #fff;
+    background: #3cb371;
+    padding: 20px;
+    border: 3px dashed rgba(255,255,255,0.5);
+    border-radius: 6px;
+    height:500px;
+    width:400px;   
+    float:right;
+    display:inline-block;
+    margin-top:-500px;
+    margin-right:100px;
+
+    /*-moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    box-shadow: 0 0 0 5px #3cb371, 0 2px 3px 5px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 0 0 5px #3cb371, 0 2px 3px 5px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 0 5px #3cb371, 0 2px 3px 5px rgba(0,0,0,0.5);*/
+}
+.wrapper {
+	overflow: hidden;
+
+}
+
+
+#camera .photobooth ul { 
+
+	right:50px;
+}
+.cameraIcon {
+	padding:20px 20px 20px 50px;
+	padding-left:50px;
+	cursor: pointer;	
+
+}
+.saveImage {
+	padding-bottom: 13px;
+	cursor: pointer;
+}
+.emailIcon {
+	padding: 15px 0 26px 18px;
+	cursor: pointer;
+}
+.pencilIcon {
+	height:100px;
+	padding: 15px 0 15px 18px;
+	cursor: pointer;
+
+}
+
+/*#video {
+    display:none;
+}*/
+
+/*.modal-dialog {
+	width: 700px;
+}
+*/
+/*#cam-test {
+	width: 800px;
+	height: 600px;
+	border: 1px solid black;
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+

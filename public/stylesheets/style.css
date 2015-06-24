@@ -5,72 +5,14 @@ body {
 
 }
 
-#canvasDiv {
-	height: 600px;
-	width: 800px;
-	position: relative;
-}
-
-/*#photo {
-	position: absolute;
-	height: 600px;
-	width: 800px;
-	top: 0;
-	left: 0;
-	z-index: 1;
-	margin:0 0 0 50px;
-}*/
-
-
-#canvas {
-
-	background-color: #fff8dc;
-	cursor:default;
-	position: absolute;
-	
-	top: 0;
-	left: 0;
-	z-index: 0;
-	
-	
-	border-radius: 18px 18px 18px 18px;
-	-moz-border-radius: 18px 18px 18px 18px;
-	-webkit-border-radius: 18px 18px 18px 18px;
-	
-	margin:0 0 0 50px;
-}
-
-#camera {
-	position: absolute;
-	height: 600px;
-	width: 800px;
-	top: 0;
-	left: 0;
-	z-index: 10;
-	margin:0 0 0 50px;
-	
-}
-
-
-
-.menu {
-	position: relative;
-	
-	margin:0;
-	padding:0;
-	display: block;
-}
-
-.slider {
-	width:600px;
-	height: .8em;s
-	position: relative;
-	text-align: left;
-}
 br {
 	margin:0;
 	padding:0;
 }
+
+
+
+
 .save {
 	margin:0;
 	padding:0;
@@ -96,17 +38,30 @@ button {
 	-webkit-appearance:
 	button;
 }	
-
-.block {
+.command_menu {
     color: #fff;
     background: #f08080;
-    padding: 3px;
-    border: 2px dashed rgba(255,255,255,0.8);
+    padding: 20px;
+    border: 1px dashed rgba(255,255,255,0.8);
     box-shadow: 0 0 0 5px #f08080;
     -moz-box-shadow: 0 0 0 5px #f08080;
     -webkit-box-shadow: 0 0 0 5px #f08080;
 }
+h1 {
+	font-family: 'PComfortaa', serif;
+	font-weight: 100; 
+	font-size: 1.5em;
+	
+	width:100%;
+	padding:0 0 0 50px;
 
+	color:white;
+}
+
+.frame_wrapper {
+	overflow: hidden;
+	margin-top: 5px;
+}
 
 .frameImage {
 　
@@ -119,36 +74,14 @@ button {
 	cursor: pointer;
 }
 
-
-.wrapper {
-	height:30%;
-	width:100%;	
-	margin-top: 5px;
-	position: relative;
-}
-
-.wrapper:after {
-	clear:both;
-
-}
 .colors {
-	width:800px;
-	display:inline-block;
-	margin:0px 0 0 80px;
-
-
 
 }
+
 .colorpencil {
-		
-		padding:30px 0 0 0;
-		float:left;
-		padding:0
-		width:100%;
-		/*transform: rotateX( 180deg );*/
-	　  height:150px;
-		
+
 }
+
 .stickers  {
     color: #fff;
     background: #3cb371;
@@ -168,23 +101,55 @@ button {
     -moz-box-shadow: 0 0 0 5px #3cb371, 0 2px 3px 5px rgba(0,0,0,0.5);
     -webkit-box-shadow: 0 0 0 5px #3cb371, 0 2px 3px 5px rgba(0,0,0,0.5);*/
 }
-.wrapper {
-	overflow: hidden;
 
+.pencil_wrapper {
+	padding: 10px 0 0 180px;
+	position: absolute;
+	top: 930px;
+}
+
+.canvas_wrapper {
+	width: 100%;
+	padding-left: 125px;
+}
+
+#photo {
+	height: 600px;
+	width: 800px;
+	z-index: 0;
+    position: absolute;
+}
+
+#canvas {
+	height: 600px;
+	width: 800px;
+	background-color: rgba(0,0,0,0);
+	cursor: crosshair;
+	z-index: 1;
+    position: absolute;
+}
+
+#camera {
+	height: 600px;
+	width: 800px;
+	z-index: 2;
+    position: absolute;
+}
+
+#camera ul {/*
+	position: absolute;
+	left:800px;
+	top:0px;*/
 }
 
 
-#camera .photobooth ul { 
-
-	right:50px;
-}
 .cameraIcon {
 	padding:20px 20px 20px 50px;
 	padding-left:50px;
 	cursor: pointer;	
 
 }
-.saveImage {
+.saveIcon {
 	padding-bottom: 13px;
 	cursor: pointer;
 }
@@ -199,21 +164,11 @@ button {
 
 }
 
-/*#video {
-    display:none;
-}*/
-
-/*.modal-dialog {
-	width: 700px;
-}
-*/
-/*#cam-test {
-	width: 800px;
-	height: 600px;
-	border: 1px solid black;
+.icons {
+	display: inline-block;
+	float:right;
 }
 
-*/
 
 
 
@@ -223,6 +178,31 @@ button {
 
 
 
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
 
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
 
 
