@@ -103,7 +103,7 @@ if (photo != 'none') {
 
     if(clickTool[i] =='eraser') {
       context.globalCompositeOperation = 'destination-out';
-      context.lineWidth = 10;
+      context.lineWidth = 50;
     }
     else {
       context.globalCompositeOperation = 'source-over';
@@ -169,7 +169,7 @@ $('#camera').photobooth().on("image",function( event, dataUrl ){
   //$(".pencil_wrapper").append( '<img src="' + dataUrl + '" >');
 });
 
-    $('.cameraIcon').on('click',function(){
+    $('.camera_icon').on('click',function(){
         photo = 'none';
         $('#camera').css('display','block');
         $('#camera').data('photobooth').resume();
@@ -186,7 +186,7 @@ $('#camera').photobooth().on("image",function( event, dataUrl ){
     return d.promise();
    }
   
-  $('.emailIcon').on('click', function( e ) {
+  $('.email_icon').on('click', function( e ) {
     var photo = document.getElementById('photo');
     var camera = document.getElementById('canvas');
 
@@ -230,7 +230,6 @@ $('#camera').photobooth().on("image",function( event, dataUrl ){
             success: function(){
                 console.log("success");
                $('body').css('cursor', 'auto');
-               $('.pointer').css('cursor','auto');
                 window.location.href = "/user_picture/mail_form";
             }
         });
@@ -241,22 +240,7 @@ $('#camera').photobooth().on("image",function( event, dataUrl ){
 
   })
 
-//above this ponit is camera function----------------------------------
 
-// frame action starts-------------------------------------------------
-
-
-
-
-
-// function putFrameToCanvas (){
-//  var frameImage = $('<img>').attr('src','images/frameArt.png')[0]
- 
-// // canvas.width = 600
-// // canvas.height = 800
-
-//  context.drawImage(frameImage, 0, 0, frameImage.width, frameImage.height,0,0, canvas.width, canvas.height);  
-//  }
 //this is Putting Frames on canvas---------------------------------------------------------------------------------------below
 
 
@@ -272,17 +256,7 @@ $('#camera').photobooth().on("image",function( event, dataUrl ){
    });
  
 //-------------------save the image-----------------------------below
-// function saveImage() {
-//     var imgdata = $('#canvas').toDataURL();  // デフォルトだとpng, 引数でjpegとかも可能
-//     imgdata = imgdata.replace('data:image/png;base64,', '');  // 頭のいらない部分を落とす
 
-//     new Ajax.Request(<画像保存CGIのURL>, {
-//         parameters: 'img=' + imgdata,  // 画像データを送信
-//         onComplete: function(res) {  // callback 別になくてもよいが。
-//             if (res.responseText != 'ok') alert('error');
-//         }
-//     });
-// }
 
 
 
@@ -292,28 +266,6 @@ function chgImg()
   var png = cvs.toDataURL();
   document.getElementById("newImg").src = png;
 }
-
-// $('.saveImage').on('click', function(){
-//     var dataURL = canvas.toDataURL('image/png');
-//     $.ajax({
-//         method: 'POST',
-//         url: 'user_picture',
-//       //  data: {
-//       //      format: 'json',
-//       //      data_uri: dataURL
-//       //  },
-//         model: {
-//             image: dataURL,
-//         }
-//         dataType: 'jsonp',
-//         error: function(err) {
-//         console.log(err);
-//         },
-//         success: function(){
-//             console.log("success");
-//         }
-//     });
-// });
 
 
 
