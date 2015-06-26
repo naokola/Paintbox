@@ -20,7 +20,9 @@ class UserPictureController < ApplicationController
     def send_mail
         message_body = params[:message_body]
         recipient = params[:email_address]
-        UserMailer.send_mail(message_body, recipient).deliver_now
+        name = params[:name]
+        url = request.base_url
+        UserMailer.send_mail(name, message_body, recipient, url).deliver_now
 
         redirect_to root_url
     end

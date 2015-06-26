@@ -1,3 +1,4 @@
-<h1>test email</h1>
-<img src="<%= @user_picture.image.url %>">
+<p><%= @message_body %></p>
+<p><img src="<%= @user_picture.image.url %>"></p>
+<%= link_to request.original_url, "Click here to send a response using PaintBox!" %>
 

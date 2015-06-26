@@ -1,12 +1,18 @@
 class UserMailer < ApplicationMailer
-    def send_mail(message_body, recipient)
+    def send_mail(name, message_body, recipient, url)
         @user_picture = UserPicture.last
         @message_body = message_body
+        @url = url
+        if name then
+            subj = "#{name} as send you a message through PaintBox!"
+        else
+            subj = "You've received a message through PaintBox!"
+        end
         mail(
-            subject: 'Postmark works',
+            subject: subj,
             to: recipient,
             from: 'no-reply@concrawler.com',
-            html_body: 'this is the body')
+        )
     end
 
 end
