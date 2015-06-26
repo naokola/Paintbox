@@ -3,6 +3,8 @@
 $(function() {
 
 context = document.getElementById('canvas').getContext("2d");
+photoContext = document.getElementById('photo').getContext("2d");
+
 var colorWhite = '#FFFFFF';
 var colorYellow = '#FFFF00';
 var colorGreen = '#008000';
@@ -83,9 +85,9 @@ function redraw(){
   console.log('frameImage: ' + frameImage);
 
 
-if (photo != 'none') {
-    context.drawImage(photo, 0, 0, photo.width, photo.height,0,0, canvas.width, canvas.height);  
-  }
+//if (photo != 'none') {
+//    context.drawImage(photo, 0, 0, photo.width, photo.height,0,0, canvas.width, canvas.height);  
+//  }
   // context.strokeStyle = "#df4b26";
   context.lineJoin = "round";
   context.lineWidth = 5;
@@ -163,7 +165,7 @@ $('#camera').photobooth().on("image",function( event, dataUrl ){
   $('#camera').css('display','none');
   var img = new Image();
   img.onload = function(){
-    document.getElementById('photo').getContext('2d').drawImage(img,0,0); // Or at whatever offset you like
+    photoContext.drawImage(img,0,0); // Or at whatever offset you like
   };
   img.src = dataUrl;
   //$(".pencil_wrapper").append( '<img src="' + dataUrl + '" >');

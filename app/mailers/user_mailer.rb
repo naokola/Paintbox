@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
         @message_body = message_body
         @url = url
         if name then
-            subj = "#{name} as send you a message through PaintBox!"
+            subj = "#{name} has send you a message through PaintBox!"
         else
             subj = "You've received a message through PaintBox!"
         end

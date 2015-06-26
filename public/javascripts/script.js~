@@ -83,12 +83,9 @@ function redraw(){
   console.log('frameImage: ' + frameImage);
 
 
-if (photo != 'none') {
-    context.drawImage(photo, 0, 0, photo.width, photo.height,0,0, canvas.width, canvas.height);  
-  }
-  if (frameImage != 'none') {
-    context.drawImage(frameImage, 0, 0, frameImage.width, frameImage.height,0,0, canvas.width, canvas.height);  
-  }
+//if (photo != 'none') {
+//    context.drawImage(photo, 0, 0, photo.width, photo.height,0,0, canvas.width, canvas.height);  
+//  }
   // context.strokeStyle = "#df4b26";
   context.lineJoin = "round";
   context.lineWidth = 5;
@@ -120,6 +117,9 @@ if (photo != 'none') {
      context.closePath();
      context.strokeStyle = clickColor[i];
      context.stroke();
+  }
+  if (frameImage != 'none') {
+    context.drawImage(frameImage, 0, 0, frameImage.width, frameImage.height,0,0, canvas.width, canvas.height);  
   }
   
 }

@@ -1,8 +1,8 @@
 class UserMailer < ApplicationMailer
-    def send_mail(name, message_body, recipient)
+    def send_mail(name, message_body, recipient, url)
         @user_picture = UserPicture.last
         @message_body = message_body
-        @url = request.base_url
+        @url = url
         if name then
             subj = "#{name} as send you a message through PaintBox!"
         else
