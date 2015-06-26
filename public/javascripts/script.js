@@ -4,6 +4,7 @@ $(function() {
 
 context = document.getElementById('canvas').getContext("2d");
 photoContext = document.getElementById('photo').getContext("2d");
+frameContext = document.getElementById('frame').getContext("2d");
 
 var colorWhite = '#FFFFFF';
 var colorYellow = '#FFFF00';
@@ -120,9 +121,9 @@ function redraw(){
      context.strokeStyle = clickColor[i];
      context.stroke();
   }
-  if (frameImage != 'none') {
-    context.drawImage(frameImage, 0, 0, frameImage.width, frameImage.height,0,0, canvas.width, canvas.height);  
-  }
+//  if (frameImage != 'none') {
+//    context.drawImage(frameImage, 0, 0, frameImage.width, frameImage.height,0,0, canvas.width, canvas.height);  
+//  }
   
 }
 //this is redraw ---------------------------------------------------------------------------------------------------above
@@ -251,7 +252,8 @@ $('#camera').photobooth().on("image",function( event, dataUrl ){
     var thisFrame = $(this).attr('data-framename');
     frameImage = $('<img>').attr('src','images/'+thisFrame + '.png')[0];
     $(frameImage).load(function() {
-      redraw();
+      frameContext.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
+        frameContext.drawImage(frameImage, 0, 0, frameImage.width, frameImage.height,0,0, canvas.width, canvas.height);  
     });
 
 
