@@ -1,10 +1,23 @@
-<h1>Send your picture</h1>
-<%= form_tag "/user_picture/send_mail", method: 'post' do %>
-    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-    <%= label_tag "Email address:" %>
-    <%= text_field_tag 'email_address' %>
-    <%= label_tag "Message body:" %>
-    <%= text_area_tag "message_body" %>
-    <p>A link to your picture will be included in the email.</p>
-    <%= submit_tag "Send picture" %>
-<% end %>
+
+<div class="ribbon">
+     <span class="ribbon-content">Send your picture</span>
+</div>
+<div class="mailsend_form">
+    <%= form_tag "/user_picture/send_mail", method: 'post' do %>
+
+        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <p>
+            <%= label_tag "recipient's email:" %>
+            <%= text_field_tag 'email_address' %>
+        </p>
+        <p>
+            <%= label_tag "recipient's name:" %>
+            <%= text_field_tag 'name' %>
+        </p>
+        <p>
+            <%= label_tag "your message:" %>
+            <%= text_area_tag "message_body" %>
+        </p>
+        <%= submit_tag "Send picture" %>
+    <% end %>
+</div>

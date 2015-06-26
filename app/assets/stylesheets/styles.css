@@ -1,0 +1,260 @@
+
+body {
+	/*background-color: #66CDAA;*/
+	background-color:#75D0ED;
+
+
+/*
+background-color: #fff; 
+background-image: 
+linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+linear-gradient(#eee .1em, transparent .1em);
+background-size: 100% 1.2em;
+*/
+
+}
+
+br {
+	margin:0;
+	padding:0;
+}
+
+h1 {
+	font-family: 'Pacifico', cursive;
+	
+	font-size: 2em;
+	padding:0 0 40px 70px;
+	color:#A42F11;
+}
+/*this is for ribbon on page2 below-------------------------------------------------------------------------------------*/
+.ribbon {
+  font-family:'Raleway', Arial, sans-serif;
+  font-size: 20px;
+  width: 30%;
+    
+ position: relative;
+ background: #93DFB8;
+ color: #fff;
+ text-align: center;
+ padding: 1em 2em; /* Adjust to suit */
+ margin: 2em auto 3em; /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
+}
+.ribbon:before, .ribbon:after {
+ content: "";
+ position: absolute;
+ display: block;
+ bottom: -1em;
+ border: 1.5em solid #7AC69F;
+ z-index: -1;
+}
+.ribbon:before {
+ left: -2em;
+ border-right-width: 1.5em;
+ border-left-color: transparent;
+}
+.ribbon:after {
+ right: -2em;
+ border-left-width: 1.5em;
+ border-right-color: transparent;
+}
+.ribbon-content:before, .ribbon-content:after {
+ content: "";
+ position: absolute;
+ display: block;
+ border-style: solid;
+ border-color: #60AC85 transparent transparent transparent;
+ bottom: -1em;
+}
+.ribbon-content:before {
+ left: 0;
+ border-width: 1em 0 0 1em;
+}
+.ribbon-content:after {
+ right: 0;
+ border-width: 1em 1em 0 0;
+}
+/*this is for ribbon on page2 above-----------------------------------------------------------------------------------*/
+
+button .Save {
+	-webkit-writing-mode:
+	horizontal-tb;
+}
+button {
+	-webkit-appearance:
+	button;
+}
+header{
+	color: #fff;
+    /*background: #f08080;*/
+    background: #EEA435;
+    padding: 20px;
+    border: 1px dashed rgba(255,255,255,0.8);
+    box-shadow: 0 0 0 5px #EEA435;
+    -moz-box-shadow: 0 0 0 5px #EEA435;
+    -webkit-box-shadow: 0 0 0 5px #EEA435;
+    height:100px;
+    width:100%;
+
+}	
+.command_menu {
+    float:right;
+
+}
+
+
+.frame_wrapper {
+	overflow: hidden;
+	margin-top: 5px;
+	min-width: 1300px;
+}
+
+.frameImage {
+　
+	background-color:transparent;
+	margin:-80px 0 60px 50px;
+  　max-width: 100px;
+    height: auto;
+	float:left;	
+	transform:rotate(-45deg); 
+	
+	margin-top: -100px;
+}
+
+
+.pencil_wrapper {
+	padding: 0 0 0 180px;
+	position: absolute;
+	top: 930px;
+}
+
+.canvas_wrapper {
+	width: 100%;
+	padding-left: 125px;
+}
+
+#photo {
+	height: 600px;
+	width: 800px;
+	z-index: 0;
+    position: absolute;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+#canvas {
+	height: 600px;
+	width: 800px;
+	background-color: rgba(0,0,0,0);
+	cursor: crosshair;
+	z-index: 1;
+    position: absolute;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+#camera {
+	height: 600px;
+	width: 800px;
+	z-index: 2;
+    position: absolute;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+.camera_icon {
+	margin: 0 30px 10px 0px
+}
+
+.email_icon {
+	margin: 0 180px 10px 5px
+}
+
+#camera .photobooth ul {
+	background-color: #74A82A;
+	list-style-type: none;
+	border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+/* フォーム---------------------------------------------------------------------------------------------------- */
+.mailsend_form {
+    padding: 20px;
+    background: #fff;
+    border: 4px #66cdaa solid;
+    position: relative;
+    z-index: 10;
+    font-family: 'Raleway', Arial, sans-serif;
+    width:30%;
+    height:500px;
+    margin-left: 33%;
+}
+ 
+.mailsend_form:before {
+    content: "";
+    position: absolute;
+    background: #fff;
+    margin: 3px;
+    border: 2px #7accb0 solid;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    z-index: -10;
+}
+
+ /* フォーム */
+.name_form {
+    border-bottom: 1px solid #f0f0f0;
+     
+}
+.email_form {
+     border-bottom: 1px solid #f0f0f0;
+ }
+     
+.message_form {
+     border-bottom: 1px solid #f0f0f0;
+}
+
+/*form above------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+
+
