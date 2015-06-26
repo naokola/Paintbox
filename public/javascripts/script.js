@@ -230,6 +230,7 @@ $('#camera').photobooth().on("image",function( event, dataUrl ){
             success: function(){
                 console.log("success");
                $('body').css('cursor', 'auto');
+               $('.pointer').css('cursor','auto');
                 window.location.href = "/user_picture/mail_form";
             }
         });
