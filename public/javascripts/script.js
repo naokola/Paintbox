@@ -192,19 +192,23 @@ $('#camera').photobooth().on("image",function( event, dataUrl ){
   $('.email_icon').on('click', function( e ) {
     var photo = document.getElementById('photo');
     var camera = document.getElementById('canvas');
+    var frame = document.getElementById('frame');
 
     var pURL = photo.toDataURL();
     var cURL = camera.toDataURL()
+    var fURL = frame.toDataURL()
 
     var pProm = afterImageLoaded(  );
     var cProm = afterImageLoaded(  );
+    var fProm = afterImageLoaded(  );
 
     $('body').css('cursor','wait');
     $('.pointer').css('cursor','wait');
 
-    $.when(afterImageLoaded( pURL ), afterImageLoaded( cURL) ).then(function() {
+    $.when(afterImageLoaded( pURL ), afterImageLoaded( cURL), afterImageLoaded( fURL)).then(function() {
       var img1 = arguments[ 0 ][1];
       var img2 = arguments[ 1 ][1];
+      var img3 = arguments[ 2 ][1];
       var newCanv = document.createElement('canvas');
       newCanv.height = 600;
       newCanv.width = 800;
@@ -213,6 +217,7 @@ $('#camera').photobooth().on("image",function( event, dataUrl ){
       newCanvContext.drawImage( img1, 0, 0 );
       newCanvContext.globalCompositeOperation = 'source-over';
       newCanvContext.drawImage( img2, 0, 0 );
+      newCanvContext.drawImage( img3, 0, 0 );
 
       console.log( newCanv.toDataURL() );
 

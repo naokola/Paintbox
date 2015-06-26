@@ -252,6 +252,7 @@ $('#camera').photobooth().on("image",function( event, dataUrl ){
     var thisFrame = $(this).attr('data-framename');
     frameImage = $('<img>').attr('src','images/'+thisFrame + '.png')[0];
     $(frameImage).load(function() {
+      frameContext.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
         frameContext.drawImage(frameImage, 0, 0, frameImage.width, frameImage.height,0,0, canvas.width, canvas.height);  
     });
 
